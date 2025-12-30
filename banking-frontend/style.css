@@ -1,0 +1,68 @@
+:root {
+    --bg-dark: #0f0f11;
+    --box-bg: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #6366f1; /* Indigo */
+    --text-main: #ffffff;
+    --text-muted: #9ca3af;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh; overflow: hidden; }
+
+.app-container { display: flex; height: 100%; }
+
+/* Sidebar */
+.sidebar { width: 250px; padding: 2rem; border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+.logo { font-size: 1.5rem; font-weight: bold; margin-bottom: 3rem; }
+.menu li { list-style: none; padding: 10px; color: var(--text-muted); cursor: pointer; margin-bottom: 0.5rem; border-radius: 8px; transition: 0.3s; }
+.menu li:hover, .menu li.active { background: var(--box-bg); color: var(--text-main); }
+
+/* Dashboard */
+.dashboard { flex: 1; padding: 2rem; overflow-y: auto; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.status-badge { font-size: 0.8rem; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 5px 10px; border-radius: 20px; }
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 1.5rem;
+}
+
+.box {
+    background: var(--box-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.box-header { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 1rem; }
+
+/* Specific Boxes */
+.balance-box { grid-column: span 2; grid-row: span 2; justify-content: space-between; background: linear-gradient(135deg, #1f2937, #000); }
+.balance-amount { font-size: 4rem; font-weight: bold; }
+.trend { color: #10b981; font-size: 0.9rem; }
+
+.card-box { grid-column: span 2; background: linear-gradient(135deg, #4f46e5, #3730a3); color: white; justify-content: space-between; }
+.card-number { font-family: monospace; font-size: 1.5rem; letter-spacing: 2px; }
+.card-meta { display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.8; }
+
+.stat-box { justify-content: flex-end; }
+.stat-value { font-size: 2rem; font-weight: bold; }
+.income .stat-value { color: #10b981; }
+.expense .stat-value { color: #ef4444; }
+
+.transactions-box { grid-column: span 2; grid-row: span 2; }
+.tx-list { list-style: none; overflow-y: auto; }
+.tx-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.tx-info { display: flex; flex-direction: column; }
+.tx-merchant { font-weight: bold; font-size: 0.9rem; }
+.tx-cat { font-size: 0.75rem; color: var(--text-muted); }
+.tx-amount { font-family: monospace; }

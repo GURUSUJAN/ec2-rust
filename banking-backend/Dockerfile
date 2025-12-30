@@ -3,8 +3,6 @@ WORKDIR /app
 COPY . .
 RUN cargo build --release
 
-FROM debian:stable-slim
-WORKDIR /app
-COPY --from=builder /app/target/release/banking-backend .
-EXPOSE 8080
-CMD ["./banking-backend"]
+FROM debian:bookworm-slim
+COPY --from=builder /app/target/release/backend /usr/local/bin/backend
+CMD ["backend"]

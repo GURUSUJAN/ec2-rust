@@ -1,14 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Rust Bank</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoBank Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Bank Dashboard</h2>
-  <button onclick="getBalance()">Get Balance</button>
-  <p id="balance"></p>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">NeoBank.</div>
+            <ul class="menu">
+                <li class="active">Dashboard</li>
+                <li>Analytics</li>
+                <li>Cards</li>
+                <li>Settings</li>
+            </ul>
+        </nav>
 
-  <script src="script.js"></script>
+        <main class="dashboard">
+            <header>
+                <h1>Welcome back, <span id="user-name">Loading...</span></h1>
+                <div class="status-badge">● Live Secure Connection</div>
+            </header>
+
+            <div class="bento-grid">
+                
+                <div class="box balance-box">
+                    <div class="box-header">Total Liquidity</div>
+                    <div class="balance-amount">$<span id="balance">---</span></div>
+                    <div class="trend positive">↗ +2.4% this month</div>
+                </div>
+
+                <div class="box card-box">
+                    <div class="card-chip"></div>
+                    <div class="card-number">**** **** **** <span id="card-last4">0000</span></div>
+                    <div class="card-meta">
+                        <span>DEBIT</span>
+                        <span>12/28</span>
+                    </div>
+                </div>
+
+                <div class="box stat-box income">
+                    <div class="box-header">Income</div>
+                    <div class="stat-value">+$<span id="income">0</span></div>
+                </div>
+                <div class="box stat-box expense">
+                    <div class="box-header">Expense</div>
+                    <div class="stat-value">-$<span id="expense">0</span></div>
+                </div>
+
+                <div class="box transactions-box">
+                    <div class="box-header">Recent Activity</div>
+                    <ul class="tx-list" id="tx-list">
+                        <li class="loading-item">Loading data...</li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # === PUBLIC SUBNET (Frontend) ===
+  # Accessible via localhost:80
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    networks:
+      - vpc-network
+    depends_on:
+      - backend
+
+  # === PRIVATE SUBNET (Backend) ===
+  # NOT accessible from host machine directly (No ports mapped)
+  # Only accessible by 'frontend' inside the network
+  backend:
+    build: ./backend
+    networks:
+      - vpc-network
+
+networks:
+  vpc-network:
+    driver: bridge
